@@ -68,7 +68,7 @@ export default class App extends React.Component {
 
   async componentDidMount () {
     this.setState({ isReloading: true })
-    const rates = await fetchRateHistory(3)
+    const rates = await fetchRateHistory(10)
     const lastUpdated = new Date()
 
     this.setState((prevState, props) => {

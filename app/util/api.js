@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const fakeComissionResponse = {
   date: '2018-01-22 21:47:00',
   commission: '0.01'
@@ -41,7 +43,7 @@ export function fetchRateHistory (n) {
     let date = new Date()
     let count = n
     return () => {
-      const newDate = new Date(date.setSeconds(date.getSeconds() - count * 5))
+      const newDate = moment(date).subtract(count * 5, 'seconds').toDate()
       count -= 1
       return { date: newDate, purchase: Math.random(), sale: Math.random() }
     }
